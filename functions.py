@@ -37,23 +37,6 @@ def calculate_error(X_range, Y_approximated, data_dict):
         if x in np.arange(1000, 8000 + 1, 1000):
             print(f'Ошибка для высоты {x}: {data_dict[x] - y}')
 
-            def least_squares_fit(x, y, degree, num_points=None):
-                if num_points is None:
-                    num_points = len(x)  # Используем все точки по умолчанию
-
-                # Выбираем только первые num_points точек для аппроксимации
-                x_subset = x[:num_points]
-                y_subset = y[:num_points]
-
-                # Создаем матрицу X со степенями x_subset
-                X = np.vander(x_subset, degree + 1)
-
-                # Решаем уравнение X^T * X * coeffs = X^T * y_subset для coeffs
-                # Решение этой системы линейных уравнений производится для получения коэффициентов coeffs.
-                coeffs = np.linalg.solve(np.dot(X.T, X), np.dot(X.T, y_subset))
-
-                return coeffs
-
 
 def least_squares_fit(x, y, degree, num_points=None):
     if num_points is None:
