@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def plot_result(X_table, Y_table, X_range, Y_approximated, degree, x_label, y_label):
+def plot_result(X_table, Y_table, X_range, Y_approximated, degree, x_label, y_label, title):
     """Визуализация результатов"""
     plt.figure(figsize=(10, 6))
     plt.scatter(X_table, Y_table, label='Исходные данные', color='red')
@@ -11,6 +11,7 @@ def plot_result(X_table, Y_table, X_range, Y_approximated, degree, x_label, y_la
     plt.ylabel(y_label)
     plt.legend()
     plt.grid(True)
+    plt.title(title)
     plt.show()
 
 
